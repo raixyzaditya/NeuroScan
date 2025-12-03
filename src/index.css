@@ -1,0 +1,730 @@
+/* Modern Brain Tumor MRI Upload Styles */
+:root {
+  --primary: #4361ee;
+  --primary-light: #4895ef;
+  --primary-dark: #3a0ca3;
+  --secondary: #3f37c9;
+  --success: #4cc9f0;
+  --warning: #f8961e;
+  --danger: #f72585;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: #f5f7ff;
+}
+
+.brain-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.neurovision-header {
+  background: linear-gradient(135deg, #1a365d 0%, #153e75 100%);
+  color: white;
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-mark {
+  width: 60px;
+  height: 60px;
+}
+
+.brain-logo {
+  width: 100%;
+  height: 100%;
+  color: #63b3ed;
+  filter: drop-shadow(0 0 8px rgba(99, 179, 237, 0.4));
+}
+
+.company-name {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.primary-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #90cdf4, #63b3ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tagline {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #a0c4e6;
+  margin-top: 0.25rem;
+}
+
+.header-decoration {
+  position: absolute;
+  right: 5%;
+  display: flex;
+  gap: 1rem;
+}
+
+.pulse-dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(99, 179, 237, 0.7);
+  border-radius: 50%;
+  animation: pulse-animation 2s infinite;
+}
+
+.pulse-dot.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.pulse-dot.delay-2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.3);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+/* Optional: Add a subtle brain pattern in the background */
+.neurovision-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+}
+
+.app-container {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  min-height: 600px;
+}
+
+/* Upload Section */
+.upload-section {
+  padding: 2rem;
+  border-right: 1px solid var(--light-gray);
+}
+
+.section-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+  color: var(--gray);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tab-content {
+  padding: 0.5rem;
+}
+
+/* Upload Area */
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.upload-icon {
+  position: relative;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.pulse-ring {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid var(--primary-light);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  opacity: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+  margin: 1rem 0;
+}
+
+.upload-btn:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+}
+
+.upload-btn .icon {
+  font-size: 1.2rem;
+}
+
+.file-requirements {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+/* Preview Area */
+.preview-area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.preview-header h3 {
+  font-size: 1.3rem;
+  color: var(--dark);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--danger);
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.close-btn:hover {
+  background: rgba(247, 37, 133, 0.1);
+}
+
+.preview-content {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.scan-preview {
+  flex: 1;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scan-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.scan-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(67, 97, 238, 0.1);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.file-details {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.detail-row span:first-child {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.detail-row span:last-child {
+  color: var(--gray);
+}
+
+.analyze-btn {
+  margin-top: auto;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.analyze-btn:hover {
+  background: var(--secondary);
+}
+
+.analyze-btn.analyzing {
+  background: var(--gray);
+  cursor: not-allowed;
+}
+
+/* Results Area */
+.results-area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.results-header h3 {
+  font-size: 1.3rem;
+  color: var(--dark);
+}
+
+.result-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.result-status.success {
+  background: rgba(76, 201, 240, 0.1);
+  color: var(--success);
+}
+
+.results-content {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.result-visual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scan-result {
+  flex: 1;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: var(--light);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-result img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.tumor-highlight {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  height: 30%;
+  border: 2px dashed var(--primary);
+  border-radius: 8px;
+  animation: pulse 2s infinite;
+}
+
+.scan-notes {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.result-details {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.result-details h4 {
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.diagnosis-card {
+  background: var(--light);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+}
+
+.diagnosis-card h5 {
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.diagnosis-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.detail-group h6 {
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.detail-group ul {
+  list-style-type: none;
+  font-size: 0.9rem;
+}
+
+.detail-group li {
+  margin-bottom: 0.25rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.detail-group li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.action-btn {
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.action-btn.primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.action-btn.primary:hover {
+  background: var(--secondary);
+}
+
+.action-btn.secondary {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.action-btn.secondary:hover {
+  background: rgba(67, 97, 238, 0.05);
+}
+
+/* Info Section */
+.info-section {
+  padding: 2rem;
+  background: #f9fafd;
+}
+
+.info-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+
+.info-title .icon {
+  color: var(--primary);
+}
+
+.tumor-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tumor-item {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.tumor-item.expanded {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tumor-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tumor-header:hover {
+  background: rgba(67, 97, 238, 0.03);
+}
+
+.tumor-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tumor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tumor-header h3 {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--dark);
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.tumor-item.expanded .chevron {
+  transform: rotate(180deg);
+}
+
+.tumor-details {
+  padding: 0 1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.tumor-details p {
+  margin-bottom: 1rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.detail-cell {
+  background: var(--light);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.detail-cell h4 {
+  font-size: 0.85rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.detail-cell ul {
+  list-style-type: none;
+}
+
+.detail-cell li {
+  margin-bottom: 0.25rem;
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.85rem;
+}
+
+.detail-cell li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .upload-section {
+    border-right: none;
+    border-bottom: 1px solid var(--light-gray);
+  }
+}
+
+@media (max-width: 768px) {
+  .brain-app {
+    padding: 1rem;
+  }
+  
+  .preview-content,
+  .results-content {
+    flex-direction: column;
+  }
+  
+  .file-details,
+  .result-details {
+    width: 100%;
+  }
+  
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
